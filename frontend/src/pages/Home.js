@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { handleError, handleSuccess } from '../utils';
 import { ToastContainer } from 'react-toastify';
+import { API_BASE_URL } from '../config';
 
 function Home() {
     const [loggedInUser, setLoggedInUser] = useState('');
@@ -22,7 +23,7 @@ function Home() {
 
     const fetchProducts = async () => {
         try {
-            const url = `mern-stack-app-login-signup-frontend.vercel.app/products`;
+            const url = `${API_BASE_URL}/products`;
             const headers = {
                 headers: {
                     'Authorization': localStorage.getItem('token')
